@@ -288,4 +288,7 @@ if [[ $machine == "Darwin" ]]; then
     if [[ -f "$ALL_CA_CERTIFICATES" ]]; then
         export REQUESTS_CA_BUNDLE=$ALL_CA_CERTIFICATES
     fi
+
+    # So gpg is working.
+    export GPG_TTY=$(tty)
 fi
