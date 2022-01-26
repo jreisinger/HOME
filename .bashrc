@@ -104,8 +104,8 @@ function _get_git_version {
 }
 
 # Download and source git completion
-if [ ! -f ~/.git-completion-$(_get_git_version).bash ]; then
-    curl --silent https://raw.githubusercontent.com/git/git/v$(_get_git_version)/contrib/completion/git-completion.bash --output ~/.git-completion-$(_get_git_version).bash
+if [ ! -f ~/.git-completion-"$(_get_git_version)".bash ]; then
+    curl --silent https://raw.githubusercontent.com/git/git/v:"$(_get_git_version)"/contrib/completion/git-completion.bash --output ~/.git-completion-$(_get_git_version).bash
 fi
 source ~/.git-completion-$(_get_git_version).bash
 
