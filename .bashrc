@@ -107,7 +107,7 @@ function _get_git_version {
 if [ ! -f ~/.git-completion-"$(_get_git_version)".bash ]; then
     curl --silent https://raw.githubusercontent.com/git/git/v:"$(_get_git_version)"/contrib/completion/git-completion.bash --output ~/.git-completion-$(_get_git_version).bash
 fi
-source ~/.git-completion-$(_get_git_version).bash
+source ~/.git-completion-"$(_get_git_version)".bash
 
 # SSH hostnames completion (based on ~/.ssh/config)
 if [ -e ~/.ssh_bash_completion ]; then
@@ -148,19 +148,16 @@ function __prompt_command {
     local EXIT="$?"
 
     # Terminal colors
-    local red='\[\033[31m\]'
-    local grn='\[\033[32m\]'
     local blu='\[\e[0;34m\]'
     local ylw='\[\e[0;33m\]'
     local bldred='\[\e[31m\]'
     local bldgrn='\[\e[1;32m\]'
-    local bldblu='\[\e[1;34m\]'
     local txtrst='\[\e[0m\]'
     # Background colors - https://askubuntu.com/questions/558280/changing-colour-of-text-and-background-of-terminal
     local bcgblu='\[\e[48;5;195m\]'
 
     # Download and source git prompt
-    if [ ! -f ~/.git-prompt-$(_get_git_version).sh ]; then
+    if [ ! -f ~/.git-prompt-"$(_get_git_version)".sh ]; then
         curl --silent https://raw.githubusercontent.com/git/git/v$(_get_git_version)/contrib/completion/git-prompt.sh --output ~/.git-prompt-$(_get_git_version).sh
     fi
     source ~/.git-prompt-$(_get_git_version).sh
