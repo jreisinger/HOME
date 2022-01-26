@@ -2,4 +2,4 @@
 !.gitignore
 !.bashrc
 !README.md
-!.peco
+!.peco/config.json
