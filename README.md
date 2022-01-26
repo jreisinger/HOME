@@ -6,7 +6,7 @@ those listed in `.gitignore`.
 
 It's based on [this gist](https://gist.github.com/lonetwin/9636897).
 
-## Adding new file
+## Adding a new file
 
 ```
 cd
