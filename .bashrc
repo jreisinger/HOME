@@ -98,8 +98,9 @@ PATH="$(perl -e 'print join(":", grep { not $seen{$_}++ } split(/:/, $ENV{PATH})
 ###############
 
 function _get_git_version {
-    local ver=$(git version | perl -ne '/([\d\.]+)/ && print $1')
-    echo $ver
+    local ver
+    ver=$(git version | perl -ne '/([\d\.]+)/ && print $1')
+    echo "$ver"
 }
 
 # Download and source git completion
