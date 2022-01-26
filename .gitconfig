@@ -1,0 +1,34 @@
+# So I can have two users. ~/.gitconfig-* looks like:
+# [user]
+#        login = jsmith
+#        email = john.smith@gmail.com
+#        signingkey = A12EAD1BAA8578E1
+[include]
+        path = ~/.gitconfig-personal
+[includeIf "gitdir:~/git/lab/"]
+        path = ~/.gitconfig-work
+
+[commit]
+        gpgSign = true
+[color]
+        ui = true
+        branch = auto
+        diff = auto
+        interactive = auto
+        status = auto
+[core]
+        editor = vim
+        filemode = false
+[merge]
+        tool = vimdiff
+[alias]
+        s = status
+        d = diff --color-words
+        l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+        ll = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --name-status
+[push]
+        default = matching
+[pull]
+        rebase = false
+[init]
+        defaultBranch = main
