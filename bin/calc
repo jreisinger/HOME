@@ -1,0 +1,68 @@
+#!/usr/bin/perl -sT
+use strict;
+use warnings;
+use bignum;
+
+# Command line options...
+our ($h, $b, $x, $c, $l);
+
+# Help message...
+if ($h) {
+    print <<'EOF';
+Simple CLI calculator based on Perl's eval()
+
+calc [options] <expression>
+
+-h  help
+-b  convert expression (or its result) to binary
+-x  convert expression (or its result) to hexadecimal
+-c  convert expression (or its result) to character
+-l  calculate base 2 logarithm of expression
+
+calc 149,600,000/299 792 458*1000/60    # comma or space are thousands separator
+calc 2x2 + 2*2                          # x is the same as * (multiplication)
+calc 'sqrt(V(3+3+3) * 3)'               # V is the same as sqrt (square root)
+calc -b 2^8                             # ^ is the same as ** (exponentiation)
+calc -x $RANDOM
+calc -c 2**17-3030
+calc -l 256
+EOF
+    exit 0;
+}
+
+# Allowed input characters regex...
+my $allowed = qr'\d\+\-\/\*\.x(sqrt)V';
+
+# Transform input a bit...
+@ARGV = ( "@ARGV" =~ /[$allowed]/g );   # un-taint
+my $expr = "@ARGV";
+$expr =~ s/\s+//g;                      # allow whitespace in input
+$expr =~ s/x/*/gi;                      # allow x for multiplication
+$expr =~ s/\^/**/g;                     # allow ^ for exponentiation
+$expr =~ s/V/sqrt/g;                    # allow V for square root
+$expr =~ s/sqrt/sqrt /g;
+
+# Do the calculation...
+my $res = eval "$expr";
+die "Does not compute...$expr\n" unless defined $res;
+
+if ($b) {       # Show result in binary...
+    printf "%s = %b\n", $expr, $res;
+    exit
+} elsif ($x) {  # Show result in hex...
+    printf "%s = %x\n", $expr, $res;
+    exit
+} elsif ($c) {  # Show result as character...
+    binmode(STDOUT, ':utf8');
+    printf "%s = %c\n", $expr, $res;
+    exit
+}
+
+if ($l) {   # Calculate base 2 logarithm...
+    $res = log($res)/log(2.0);
+}
+
+# Show thousands in result but not in the decimal part...
+my ( $before_dot, $after_dot ) = split /\./, $res;
+$before_dot =~ s/(\d{1,3}?)(?=(\d{3})+$)/$1 /g;
+printf "%s = %s.%s\n", $expr, $before_dot, $after_dot // 0;
