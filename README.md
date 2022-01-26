@@ -2,8 +2,9 @@ My Unix (Linux + Mac) configuration and tools. It only uses git, no dotfile
 manager or links.
 
 The main idea is that you ignore all files in your $HOME directory except for
-those listed in `.gitignore`. It's based on
-https://gist.github.com/lonetwin/9636897.
+those listed in `.gitignore`.
+
+It's based on [this gist](https://gist.github.com/lonetwin/9636897).
 
 ## Adding new file
 
