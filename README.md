@@ -1,10 +1,7 @@
 My Unix (Linux + Mac) configuration and tools. It only uses git, no dotfile
-manager or links.
-
-The main idea is that you ignore all files in your $HOME directory (see
-`.gitignore`). Then you manually add just those you want to track and share.
-
-It's based on [this gist](https://gist.github.com/lonetwin/9636897).
+manager or links. The main idea is that you ignore all files in your $HOME
+directory (see `.gitignore`). Then you manually add just those you want to track
+and share. It's based on [this gist](https://gist.github.com/lonetwin/9636897).
 
 List tracked files
 
