@@ -1,8 +1,8 @@
 My Unix (Linux + Mac) configuration and tools. It only uses git, no dotfile
 manager or links.
 
-The main idea is that you ignore all files in your $HOME directory except for
-those listed in `.gitignore`.
+The main idea is that you ignore all files in your $HOME directory (see
+`.gitignore`). Then you manually add just those you want to track and share.
 
 It's based on [this gist](https://gist.github.com/lonetwin/9636897).
 
@@ -10,8 +10,7 @@ It's based on [this gist](https://gist.github.com/lonetwin/9636897).
 
 ```
 cd
-echo '!.bashrc' >> .gitignore
-git add .bashrc
+git add -f <file>
 ```
 
 ## Setting up on a new machine
