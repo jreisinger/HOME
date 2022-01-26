@@ -6,18 +6,23 @@ The main idea is that you ignore all files in your $HOME directory (see
 
 It's based on [this gist](https://gist.github.com/lonetwin/9636897).
 
-## Adding a new file
+List tracked files
+
+```
+git ls-tree -r main --name-only
+```
+
+Add a new file
 
 ```
 cd
 git add -f <file>
 ```
 
-## Setting up on a new machine
-
-Add the machine's ssh key (`~/.ssh/id_rsa.pub`) to GitHub and then:
+Set up on a new machine
 
 ```
+# Add the machine's ssh key (`~/.ssh/id_rsa.pub`) to GitHub and then:
 cd
 git init
 git remote add origin git@github.com:jreisinger/HOME.git
