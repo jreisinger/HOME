@@ -12,7 +12,6 @@ git ls-tree -r main --name-only
 Add a new file
 
 ```
-cd
 git add -f <file>
 ```
 
