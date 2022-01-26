@@ -172,7 +172,8 @@ function __prompt_command {
     PS1="${blu}\h${txtrst} ${bcgblu}\w\$(__git_ps1 '(%s)')${txtrst}"
 
     # Add color when in context where a bit of caution is appropriate
-    local k8s_context=$(__k8s_context)
+    local k8s_context
+    k8s_context=$(__k8s_context)
     if [[ $k8s_context =~ (.*)(prod|admin)(.*) ]]; then
         PS1+=" ${BASH_REMATCH[1]}${ylw}${BASH_REMATCH[2]}${txtrst}${BASH_REMATCH[3]}"
     else
@@ -180,7 +181,7 @@ function __prompt_command {
     fi
 
     # Set terminal tab title
-    echo -ne "\033]0;$(hostname):$(basename $PWD)\007"
+    echo -ne "\033]0;$(hostname):$(basename "$PWD")\007"
 
     # Set color based on the command's exit code
     if [[ $EXIT -eq 0 ]]; then
@@ -200,10 +201,11 @@ PROMPT_COMMAND=__prompt_command
 
 # Open my workshop
 function work {
-    local proj=$(find -L \
+    local proj
+    proj=$(find -L \
         ~/git/hub ~/git/lab ~/OneDrive/data ~/OneDrive/temp \
         -maxdepth 1 -type d | peco)
-    cd $proj
+    cd "$proj" || return
     # Run git-sync if it's a git repo.
     if git status > /dev/null 2>&1; then
         for cmd in "git sync" 'git l -3'; do
@@ -228,7 +230,8 @@ function h {
     fi
 
     # awk removes duplicate lines (even not adjacent) and keeps the original order
-    local cmd=$(history | $tac | cut -c 8- | awk '!seen[$0]++' | peco)
+    local cmd
+    cmd=$(history | $tac | cut -c 8- | awk '!seen[$0]++' | peco)
 
     history -s "$cmd" # add $cmd to history
 
@@ -240,7 +243,8 @@ function h {
 # Varia #
 #########
 
-export VAGRANT_DETECTED_OS="$(uname)"
+VAGRANT_DETECTED_OS="$(uname)"
+export VAGRANT_DETECTED_OS
 
 # In case we use Ansible from checkout (development version)
 if [ -f ~/ansible/hacking/env-setup ]; then
@@ -268,7 +272,8 @@ unset KUBECONFIG
 
 # Allow me to select from multiple k8s clusters configurations.
 function kc {
-    local k8s_config=$(find $HOME/.kube -type f \( -iname '*.yaml' -o -iname '*.yml' -o -iname '*.conf' \) | peco)
+    local k8s_config
+    k8s_config=$(find "$HOME"/.kube -type f \( -iname '*.yaml' -o -iname '*.yml' -o -iname '*.conf' \) | peco)
     export KUBECONFIG="$k8s_config"
 }
 
@@ -288,5 +293,6 @@ if [[ $machine == "Darwin" ]]; then
     fi
 
     # So gpg is working.
-    export GPG_TTY=$(tty)
+    GPG_TTY=$(tty)
+    export GPG_TTY
 fi
