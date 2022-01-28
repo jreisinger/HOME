@@ -18,7 +18,8 @@ git add -f <file>
 Set up on a new machine
 
 ```
-# Add the machine's ssh key (`~/.ssh/id_rsa.pub`) to GitHub and then:
+# Add the machine's public ssh key (~/.ssh/id_rsa.pub) 
+# to GitHub, to this project or globally, and then:
 cd
 git init
 git remote add origin git@github.com:jreisinger/HOME.git
