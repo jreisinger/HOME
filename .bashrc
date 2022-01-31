@@ -251,13 +251,6 @@ if [ -f ~/ansible/hacking/env-setup ]; then
     source ~/ansible/hacking/env-setup
 fi
 
-# Upgrade my dotfiles but not always
-if command -v perl5.18 > /dev/null 2>&1; then   # do we have perl5.18 binary?
-    runonce -i 20160 perl5.18 ~/.../... supi    # fix for Mac
-else
-    runonce -i 20160 ~/.../... supi
-fi
-
 # Install my stuff but not always
 runonce -i 20160 runp ~/.install-my-stuff.txt
 
