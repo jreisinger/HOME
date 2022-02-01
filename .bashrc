@@ -207,17 +207,17 @@ function work {
         -maxdepth 1 -type d | peco)
     cd "$proj" || return
     # Run git-sync if it's a git repo.
-    if git status > /dev/null 2>&1; then
-        for cmd in "git sync" 'git l -3'; do
-            echo "---[ Running '$cmd' ]---"
-            $cmd
-        done
-    fi
+    #if git status > /dev/null 2>&1; then
+    #    for cmd in "git sync" 'git l -3'; do
+    #        echo "---[ Running '$cmd' ]---"
+    #        $cmd
+    #    done
+    #fi
     # Run init script if present and executable.
-    if [[ -x ./work.sh ]]; then
-        echo "---[ Running ./work.sh ]---"
-        ./work.sh
-    fi
+    #if [[ -x ./work.sh ]]; then
+    #    echo "---[ Running ./work.sh ]---"
+    #    ./work.sh
+    #fi
 }
 
 # Search history with peco. Don't run cmmand from h just store it into history.
