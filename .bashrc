@@ -97,18 +97,6 @@ PATH="$(perl -e 'print join(":", grep { not $seen{$_}++ } split(/:/, $ENV{PATH})
 # Completions #
 ###############
 
-function _get_git_version {
-    local ver
-    ver=$(git version | perl -ne '/([\d\.]+)/ && print $1')
-    echo "$ver"
-}
-
-# Download and source git completion
-if [ ! -f ~/.git-completion-"$(_get_git_version)".bash ]; then
-    curl --silent https://raw.githubusercontent.com/git/git/v:"$(_get_git_version)"/contrib/completion/git-completion.bash --output ~/.git-completion-$(_get_git_version).bash
-fi
-source ~/.git-completion-"$(_get_git_version)".bash
-
 # SSH hostnames completion (based on ~/.ssh/config)
 if [ -e ~/.ssh_bash_completion ]; then
     source ~/.ssh_bash_completion
