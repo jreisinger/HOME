@@ -252,13 +252,13 @@ if [ -f ~/ansible/hacking/env-setup ]; then
 fi
 
 # Install my stuff but not always
-runonce -i 20160 runp ~/.install-my-stuff.txt
+#runonce -i 20160 runp ~/.install-my-stuff.txt
 
 # Print quote but not always
-runonce myquote -s
+#runonce myquote -s
 
 # Check my job every 3 months
-runonce -i 129600 checkjob
+#runonce -i 129600 checkjob
 
 # No k8s cluster configuration selected by default.
 unset KUBECONFIG
