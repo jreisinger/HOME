@@ -1,0 +1,30 @@
+$include /etc/inputrc
+
+# Use Vi, not Emacs, style editing
+set editing-mode vi
+
+# Set smaller delay after (Esc) key press. Default is 500 (milliseconds).
+set keyseq-timeout 50
+
+#################
+# vi command mode
+set keymap vi-command
+# This allows you to search through your history using the up and down arrows,
+# i.e. type "cd /" and press the up arrow and you'll search through everything
+# in your history that starts with "cd /".
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+set show-all-if-ambiguous on
+set completion-ignore-case on
+Control-l: clear-screen
+##################
+
+################
+# vi insert mode
+set keymap vi-insert
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+set show-all-if-ambiguous on
+set completion-ignore-case on
+Control-l: clear-screen
+################
