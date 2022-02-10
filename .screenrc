@@ -8,9 +8,3 @@ hardstatus off
 hardstatus alwayslastline "%{+b wk}%H%{-b wk} %?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{wk}%?%+Lw%? %-11=%{gk}%c %{yk}%M%d"
 
 startup_message off
-
-# ------------------------------------------------------------------------------
-# STARTUP SCREENS
-# ------------------------------------------------------------------------------
-#         Screen_name   Screen #        Startup command
-#screen -t localhost     0               top
