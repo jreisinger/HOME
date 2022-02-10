@@ -6,4 +6,7 @@ set editing-mode vi
 # Set smaller delay after (Esc) key press. Default is 500 (milliseconds).
 set keyseq-timeout 50
 
-# See https://vim.fandom.com/wiki/Use_vi_shortcuts_in_terminal for more.
+# Show whether you are in insert or command mode.
+set show-mode-in-prompt on
+set vi-cmd-mode-string "\1\e[2 q\2"
+set vi-ins-mode-string "\1\e[6 q\2"
