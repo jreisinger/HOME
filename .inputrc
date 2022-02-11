@@ -10,3 +10,6 @@ set keyseq-timeout 50
 set show-mode-in-prompt on
 set vi-cmd-mode-string "\1\e[2 q\2"
 set vi-ins-mode-string "\1\e[6 q\2"
+
+# So Ctrl+l clears screen both in insert and command mode.
+Control-l: clear-screen
