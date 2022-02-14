@@ -18,34 +18,18 @@ export HISTCONTROL=ignorespace:ignoredups:erasedups
 # Aliases #
 ###########
 
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ] || [ -x /bin/dircolors ]; then
-  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-  alias ls='ls --color=auto -h --group-directories-first'
-  alias grep='grep --color=auto'
-  alias fgrep='fgrep --color=auto'
-  alias egrep='egrep --color=auto'
-else
-  alias ls='ls -G' # Mac
-fi
+alias ls='ls --color=auto -h --group-directories-first'
 
-# some more ls aliases
-alias l='ls -CF'
-alias ll='ls -l'
-alias la='ls -A'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
 
-# prevent accidentally clobbering files
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 
-# other aliases
-alias j='jobs -l'
-if [ -e /usr/bin/vim ]; then
-    alias vi='vim'
-fi
+alias vi='vim'
 
-# k8s
 if which kubectl > /dev/null 2>&1; then
     alias k=kubectl
     complete -F __start_kubectl k # enable completion for k alias
@@ -54,6 +38,12 @@ fi
 ########
 # PATH #
 ########
+
+# when on Mac use GNU instead of BSD tools if they are installed (brew install
+# coreutils)
+if [[ $(uname -s) == "Darwin" ]] && [[ -e "/usr/local/opt/coreutils/libexec/gnubin" ]]; then
+        PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+fi
 
 # set PATH so it includes user's private bin if it exists
 if [[ -d "$HOME/bin" ]]; then
@@ -268,8 +258,7 @@ function kc {
 # MacBook #
 ###########
 
-machine=$(uname -s)
-if [[ $machine == "Darwin" ]]; then
+if [[ $(uname -s) == "Darwin" ]]; then
     # Stop saying that zsh is the new default.
     export BASH_SILENCE_DEPRECATION_WARNING=1
 
