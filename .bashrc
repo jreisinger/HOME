@@ -8,9 +8,12 @@
 # History #
 ###########
 
-export SHELL_SESSION_HISTORY=0 # so history gets saved on Mac
+# so history gets saved on Mac
+export SHELL_SESSION_HISTORY=0
+
 export HISTSIZE=99999
 export HISTFILESIZE=99999
+
 # don't store duplicate lines or lines starting with space in the history
 export HISTCONTROL=ignorespace:ignoredups:erasedups
 
@@ -18,7 +21,7 @@ export HISTCONTROL=ignorespace:ignoredups:erasedups
 # Aliases #
 ###########
 
-alias ls='ls --color=auto -h --group-directories-first'
+alias ls='ls --color=auto --group-directories-first'
 
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
@@ -147,8 +150,8 @@ function __prompt_command {
     source ~/.git-prompt-$(_get_git_version).sh
 
     # git prompt (__git_ps1) configuration
-    GIT_PS1_SHOWDIRTYSTATE=1
-    GIT_PS1_SHOWUNTRACKEDFILES=1
+    export GIT_PS1_SHOWDIRTYSTATE=1
+    export GIT_PS1_SHOWUNTRACKEDFILES=1
 
     # how long the working path dir (\w) should be
     PROMPT_DIRTRIM=3
@@ -183,7 +186,7 @@ PROMPT_COMMAND=__prompt_command
 # Productivity tools #
 ######################
 
-# Open my workshop
+# Open my workshop.
 function work {
     local proj
     proj=$(find -L \
@@ -223,26 +226,9 @@ function h {
     #$cmd
 }
 
-#########
-# Varia #
-#########
-
-VAGRANT_DETECTED_OS="$(uname)"
-export VAGRANT_DETECTED_OS
-
-# In case we use Ansible from checkout (development version)
-if [ -f ~/ansible/hacking/env-setup ]; then
-    source ~/ansible/hacking/env-setup
-fi
-
-# Install my stuff but not always
-#runonce -i 20160 runp ~/.install-my-stuff.txt
-
-# Print quote but not always
-#runonce myquote -s
-
-# Check my job every 3 months
-#runonce -i 129600 checkjob
+#######
+# K8s #
+#######
 
 # No k8s cluster configuration selected by default.
 unset KUBECONFIG
