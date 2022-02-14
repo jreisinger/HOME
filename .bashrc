@@ -22,6 +22,8 @@ export HISTCONTROL=ignorespace:ignoredups:erasedups
 ###########
 
 alias ls='ls --color=auto --group-directories-first'
+alias l='ls'
+alias ll='ls -l'
 
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
