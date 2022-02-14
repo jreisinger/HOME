@@ -260,3 +260,10 @@ if [[ $(uname -s) == "Darwin" ]]; then
     GPG_TTY=$(tty)
     export GPG_TTY
 fi
+
+#########
+# Other #
+#########
+
+# fix locale issue when scp-ing to a server
+export LC_ALL=en_US.UTF-8
