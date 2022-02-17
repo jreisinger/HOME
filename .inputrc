@@ -3,7 +3,7 @@ $include /etc/inputrc
 # Use Vi, not Emacs, style editing.
 set editing-mode vi
 
-# Set smaller delay after (Esc) key press. Default is 500 (milliseconds).
+# Delay in milliseconds after (Esc) key press.
 set keyseq-timeout 50
 
 # Show whether you are in insert or command mode.

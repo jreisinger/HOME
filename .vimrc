@@ -13,6 +13,9 @@ autocmd BufNewFile * silent! 0r ~/.vim/templates/%:e.template
 
 "====[ Basics ]================================================================
 
+" Delay in milliseconds after (Esc) key press.
+set ttimeoutlen=50
+
 " Show whether you are in insert or command mode
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
