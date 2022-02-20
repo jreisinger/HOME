@@ -1,4 +1,5 @@
 #!/bin/bash
+# Synchronize git repo with upstream.
 set -e
 
 git status > /dev/null 2>&1 # check we are in a git repo

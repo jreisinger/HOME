@@ -1,14 +1,17 @@
 #!/usr/bin/env perl
+# Commit and push modified files.
 use strict;
 use warnings;
 use autodie;
 use File::Basename;
 
-# Print arguments before executing them. It simulates bash's set -e.
-sub set_e {
+sub set_e { # print arguments before executing them (simulates bash's set -e)
     print "+ @_\n";
     system(@cmd);
 }
+
+my $cmd = "git status > /dev/null 2>&1"; # check we are in a git repo
+set_e($cmd);
 
 my @files;
 
