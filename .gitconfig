@@ -21,7 +21,7 @@
         filemode = false
         # By default, git will print non-ASCII file names in quoted octal
         # notation, i.e.  "\nnn\nnn...". This disables this behaviour.
-	    quotepath = off
+        quotepath = off
 [merge]
         tool = vimdiff
 [alias]
