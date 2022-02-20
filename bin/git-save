@@ -1,0 +1,21 @@
+#!/usr/bin/env perl
+use strict;
+use warnings;
+use autodie;
+use File::Basename;
+
+my @files;
+
+for (`git status --porcelain`) {
+    my $status  = (split)[0];
+    my $file    = (split)[1];
+    next if $status ne 'M';            # only modified files (man git-status)
+    push @files, (fileparse $file)[0]; # only basenames
+}
+
+if (@files) {
+    my $cmd = "git commit -am 'minor changes in " . join( ", ", @files ) . "'";
+    system($cmd);
+}
+
+system('git push')
