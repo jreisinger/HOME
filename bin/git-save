@@ -4,6 +4,12 @@ use warnings;
 use autodie;
 use File::Basename;
 
+# Print arguments before executing them. It simulates bash's set -e.
+sub set_e {
+    print "+ @_\n";
+    system(@cmd);
+}
+
 my @files;
 
 for (`git status --porcelain`) {
@@ -14,8 +20,9 @@ for (`git status --porcelain`) {
 }
 
 if (@files) {
-    my $cmd = "git commit -am 'minor changes in " . join( ", ", @files ) . "'";
-    system($cmd);
+    my @cmd = ("git", "commit -am 'minor changes in " . join(", ", @files) . "'");
+    set_e(@cmd)
 }
 
-system('git push')
+my @cmd = ("git", "push");
+set_e(@cmd)
