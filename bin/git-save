@@ -2,16 +2,15 @@
 # Commit and push modified files.
 use strict;
 use warnings;
-use autodie;
+use autodie; # like set -e
 use File::Basename;
 
-sub set_e { # print arguments before executing them (simulates bash's set -e)
-    print "+ @_\n";
-    system(@cmd);
-}
+system("git status > /dev/null 2>&1"); # check we are in a git repo
 
-my $cmd = "git status > /dev/null 2>&1"; # check we are in a git repo
-set_e($cmd);
+sub set_x { # print arguments before executing them (simulates bash's set -x)
+    print "+ @_\n";
+    system(@_);
+}
 
 my @files;
 
@@ -24,8 +23,8 @@ for (`git status --porcelain`) {
 
 if (@files) {
     my @cmd = ("git", "commit -am 'minor changes in " . join(", ", @files) . "'");
-    set_e(@cmd)
+    set_x(@cmd)
 }
 
 my @cmd = ("git", "push");
-set_e(@cmd)
+set_x(@cmd)
