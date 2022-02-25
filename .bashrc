@@ -255,3 +255,6 @@ fi
 
 # fix locale issue when scp-ing to a server
 export LC_ALL=en_US.UTF-8
+
+# to get "new mail" notification in terminal
+export MAIL="/var/mail/$USER"
