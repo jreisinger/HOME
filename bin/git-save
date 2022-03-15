@@ -22,8 +22,10 @@ for (`git status --porcelain`) {
 }
 
 if (@files) {
-    my @cmd = ("git", "commit", "-a",
-               "-m 'minor changes in " . join(", ", @files) . "'");
+    my @cmd =   (
+                    "git", "commit", "-a",
+                    "-m", "minor changes in " . join(", ", @files)
+                );
     set_x(@cmd)
 }
 
