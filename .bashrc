@@ -153,10 +153,10 @@ function __prompt_command {
     export GIT_PS1_SHOWDIRTYSTATE=1
     export GIT_PS1_SHOWUNTRACKEDFILES=1
 
-    # how long the working path dir (\w) should be
-    PROMPT_DIRTRIM=3
+    # how long the working dir path (\w) should be
+    PROMPT_DIRTRIM=5
 
-    PS1="${blu}\h${txtrst} ${bcgblu}\w\$(__git_ps1 '(%s)')${txtrst}"
+    PS1="${blu}\h${txtrst} ${bcgblu}\w${txtrst} \$(__git_ps1 '(%s)')"
 
     # Add color when in context where a bit of caution is appropriate
     local k8s_context
