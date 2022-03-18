@@ -120,10 +120,8 @@ fi
 # K8s context in PS1. My alternative to https://github.com/jonmosco/kube-ps1.
 function __k8s_context {
     local ctx=""
-    if [[ -n $KUBECONFIG ]] || [[  -f $HOME/.kube/config ]]; then
-        ctx=$(kubectl config view --minify --output json 2> /dev/null | jq -r '.["current-context"]')
-    fi
-    echo "[$ctx]"
+    ctx=$(kubectl config view --minify --output json 2> /dev/null | jq -r '.["current-context"]')
+    [[ -n "$ctx" ]] && echo "[$ctx]"
 }
 
 function _get_git_version {
