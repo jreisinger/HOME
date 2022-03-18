@@ -154,7 +154,7 @@ function __prompt_command {
     export GIT_PS1_SHOWUNTRACKEDFILES=1
 
     # how long the working dir path (\w) should be
-    PROMPT_DIRTRIM=5
+    PROMPT_DIRTRIM=7
 
     PS1="${blu}\h${txtrst} ${bcgblu}\w${txtrst} \$(__git_ps1 '(%s)')"
 
