@@ -121,7 +121,7 @@ fi
 function __k8s_context {
     local ctx=""
     ctx=$(kubectl config view --minify --output json 2> /dev/null | jq -r '.["current-context"]')
-    [[ -n "$ctx" ]] && echo "[$ctx]"
+    [[ -n "$ctx" ]] && echo "$ctx"
 }
 
 function _get_git_version {
@@ -154,7 +154,7 @@ function __prompt_command {
     export GIT_PS1_SHOWUNTRACKEDFILES=1
 
     # how long the working dir path (\w) should be
-    PROMPT_DIRTRIM=7
+    PROMPT_DIRTRIM=3
 
     PS1="${blu}\h${txtrst} ${bcgblu}\w${txtrst} \$(__git_ps1 '(%s)')"
 
@@ -163,7 +163,7 @@ function __prompt_command {
     k8s_context=$(__k8s_context)
     if [[ $k8s_context =~ (.*)(prod|admin)(.*) ]]; then
         PS1+=" ${BASH_REMATCH[1]}${ylw}${BASH_REMATCH[2]}${txtrst}${BASH_REMATCH[3]}"
-    else
+    elif [[ -n "$k8s_context" ]]; then
         PS1+=" $k8s_context"
     fi
 
@@ -172,9 +172,9 @@ function __prompt_command {
 
     # Set color based on the command's exit code
     if [[ $EXIT -eq 0 ]]; then
-        PS1+="\n${bldgrn}> ${txtrst}"
+        PS1+="${bldgrn} > ${txtrst}"
     else
-        PS1+="\n${bldred}> ${txtrst}"
+        PS1+="${bldred} > ${txtrst}"
     fi
 }
 
