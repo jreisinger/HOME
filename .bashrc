@@ -154,7 +154,7 @@ function __prompt_command {
     export GIT_PS1_SHOWUNTRACKEDFILES=1
 
     # how long the working dir path (\w) should be
-    PROMPT_DIRTRIM=1
+    PROMPT_DIRTRIM=7
 
     PS1="${blu}\h${txtrst} ${bcgblu}\w${txtrst} \$(__git_ps1 '(%s)')"
 
@@ -172,9 +172,9 @@ function __prompt_command {
 
     # Set color based on the command's exit code
     if [[ $EXIT -eq 0 ]]; then
-        PS1+="${bldgrn} > ${txtrst}"
+        PS1+="\n${bldgrn}> ${txtrst}"
     else
-        PS1+="${bldred} > ${txtrst}"
+        PS1+="\n${bldred}> ${txtrst}"
     fi
 }
 
