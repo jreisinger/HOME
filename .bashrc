@@ -258,4 +258,6 @@ export LC_ALL=en_US.UTF-8
 export MAIL="/var/mail/$USER"
 
 # print one of my favorite quotes 1 out of 10 times
-[ "$RANDOM" -lt 3277 ] && myquote
+if [ "$RANDOM" -lt 3277 ]; then
+	myquote
+fi
