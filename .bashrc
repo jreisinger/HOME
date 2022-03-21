@@ -156,7 +156,7 @@ function __prompt_command {
     # how long the working dir path (\w) should be
     PROMPT_DIRTRIM=1
 
-    PS1="${blu}\h${txtrst} ${bcgblu}\w${txtrst} \$(__git_ps1 '(%s)')"
+    PS1="${blu}\h${txtrst} ${bcgblu}\w${txtrst} \$(__git_ps1 '%s')"
 
     # Add color when in context where a bit of caution is appropriate
     local k8s_context
