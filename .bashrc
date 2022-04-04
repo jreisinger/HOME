@@ -44,12 +44,6 @@ fi
 # PATH #
 ########
 
-# when on Mac use GNU instead of BSD tools if they are installed (brew install
-# coreutils)
-if [[ $(uname -s) == "Darwin" ]] && [[ -e "/usr/local/opt/coreutils/libexec/gnubin" ]]; then
-        PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-fi
-
 # set PATH so it includes user's private bin if it exists
 if [[ -d "$HOME/bin" ]]; then
     PATH="$PATH:$HOME/bin"
@@ -70,6 +64,11 @@ if [[ -d "$HOME/.local/bin" ]]; then
     PATH="$PATH:$HOME/.local/bin"
 fi
 
+# add Visual Studio Code (code)
+if [[ -d "/Applications/Visual Studio Code.app/Contents/Resources/app/bin" ]]; then
+    PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+fi
+
 # add brew python3 binary to PATH (Mac)
 if [[ -d "/usr/local/opt/python@3/libexec/bin" ]]; then
     PATH="$PATH:/usr/local/opt/python@3/libexec/bin"
@@ -80,9 +79,9 @@ if [[ -d "$HOME/Library/Python/3.8/bin" ]]; then
     PATH="$PATH:$HOME/Library/Python/3.8/bin"
 fi
 
-# add Visual Studio Code (code)
-if [[ -d "/Applications/Visual Studio Code.app/Contents/Resources/app/bin" ]]; then
-    PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+# use GNU instead of BSD tools if installed (Mac; brew install coreutils)
+if [[ -d "/usr/local/opt/coreutils/libexec/gnubin" ]]; then
+        PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 fi
 
 # dedup PATH
