@@ -154,9 +154,9 @@ function __prompt_command {
     #export GIT_PS1_SHOWUPSTREAM="auto"
 
     # How long the working dir path (\w) should be
-    PROMPT_DIRTRIM=1
+    PROMPT_DIRTRIM=3
 
-    PS1="${blu}\h${txtrst} ${bcgblu}\w${txtrst} \$(__git_ps1 '%s')"
+    PS1="${bcgblu}\w${txtrst} \$(__git_ps1 '%s')"
 
     # Add color when in context where a bit of caution is appropriate
     local k8s_context
@@ -168,7 +168,7 @@ function __prompt_command {
     fi
 
     # Set terminal tab title
-    echo -ne "\033]0;$(hostname -s) $(basename "$PWD")\007"
+    echo -ne "\033]0;$(hostname -s)\007"
 
     # Set color based on the command's exit code
     if [[ $EXIT -eq 0 ]]; then
