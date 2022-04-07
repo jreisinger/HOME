@@ -2,7 +2,6 @@
 
 " NERDTree
 nnoremap <F4> :NERDTreeToggle<CR>
-nnoremap <t> :NERDTreeMapOpenInTab<CR>
 set encoding=utf-8 " MacBook fix
 
 " open BufExplorer
