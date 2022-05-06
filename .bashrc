@@ -84,6 +84,9 @@ if [[ -d "/usr/local/opt/coreutils/libexec/gnubin" ]]; then
         PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 fi
 
+# https://krew.sigs.k8s.io/docs/user-guide/setup/install/#bash
+PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
 # dedup PATH
 PATH="$(perl -e 'print join(":", grep { not $seen{$_}++ } split(/:/, $ENV{PATH}))')"
 
