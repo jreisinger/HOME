@@ -260,7 +260,7 @@ export LC_ALL=en_US.UTF-8
 # to get "new mail" notification in terminal
 export MAIL="/var/mail/$USER"
 
-# print one of my favorite quotes 1 out of 10 times
-if [ "$RANDOM" -lt 3277 ]; then
+# print one of my favorite quotes when bash is interactive and only 1 out of 10 times
+if [[ $- == *i* ]] && [[ "$RANDOM" -lt 3277 ]]; then
 	myquote
 fi
