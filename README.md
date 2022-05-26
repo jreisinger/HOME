@@ -28,3 +28,5 @@ git reset origin/main
 git checkout --track origin/main
 git checkout .
 ```
+
+You should also add gitleaks [pre-commit](https://github.com/zricethezav/gitleaks#pre-commit) hook to not leak secrets to the Internet.
