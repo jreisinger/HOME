@@ -1,0 +1,10 @@
+#!/bin/bash
+
+blu='\e[0;34m'
+txtrst='\e[0m'
+
+printf "\n"
+printf "\n"
+printf "${blu}===============================================================================${txtrst}\n"
+printf "\n"
+printf "\n"
