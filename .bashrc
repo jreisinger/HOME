@@ -154,7 +154,8 @@ function __prompt_command {
     # git prompt (__git_ps1) configuration
     export GIT_PS1_SHOWDIRTYSTATE=1
     export GIT_PS1_SHOWUNTRACKEDFILES=1
-    #export GIT_PS1_SHOWUPSTREAM="auto"
+    export GIT_PS1_HIDE_IF_PWD_IGNORED=1
+    export GIT_PS1_SHOWUPSTREAM="auto"
 
     # How long the working dir path (\w) should be
     PROMPT_DIRTRIM=3
