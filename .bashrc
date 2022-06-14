@@ -192,9 +192,16 @@ PROMPT_COMMAND=__prompt_command
 # cd to one of my commonly used directories.
 function c {
     local proj
+    local peco=peco
+
+    if [[ $# -eq 1 ]]; then
+            peco+=" --query $1"
+    fi
+
     proj=$(find -L \
         ~/git/hub ~/git/lab ~/OneDrive/data ~/OneDrive/temp \
-        -maxdepth 1 -type d | peco)
+        -maxdepth 1 -type d | $peco)
+
     cd "$proj" || return
 }
 
