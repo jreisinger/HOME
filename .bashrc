@@ -1,3 +1,4 @@
+# shellcheck shell=bash
 # Non-login, i.e. run on every instance. Place for aliases and functions.
 
 # Creating a symlink between ~/.bashrc and ~/.bash_profile will ensure that the
@@ -137,7 +138,7 @@ function __prompt_command {
     local EXIT="$?"
 
     # Terminal colors
-    local blu='\[\e[0;34m\]'
+    # local blu='\[\e[0;34m\]'
     local ylw='\[\e[0;33m\]'
     local bldred='\[\e[31m\]'
     local bldgrn='\[\e[1;32m\]'
@@ -147,9 +148,9 @@ function __prompt_command {
 
     # Download and source git prompt
     if [ ! -f ~/.git-prompt-"$(_get_git_version)".sh ]; then
-        curl --silent https://raw.githubusercontent.com/git/git/v$(_get_git_version)/contrib/completion/git-prompt.sh --output ~/.git-prompt-$(_get_git_version).sh
+        curl --silent "https://raw.githubusercontent.com/git/git/v$(_get_git_version)/contrib/completion/git-prompt.sh --output ~/.git-prompt-$(_get_git_version).sh"
     fi
-    source ~/.git-prompt-$(_get_git_version).sh
+    source "$HOME/.git-prompt-$(_get_git_version).sh"
 
     # git prompt (__git_ps1) configuration
     export GIT_PS1_SHOWDIRTYSTATE=1
