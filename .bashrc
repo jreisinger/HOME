@@ -176,9 +176,9 @@ function __prompt_command {
 
     # Set color based on the command's exit code
     if [[ $EXIT -eq 0 ]]; then
-        PS1+="${bldgrn} > ${txtrst}"
+        PS1+="${bldgrn} $ ${txtrst}"
     else
-        PS1+="${bldred} > ${txtrst}"
+        PS1+="${bldred} $ ${txtrst}"
     fi
 }
 
