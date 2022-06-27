@@ -34,7 +34,7 @@ set indentkeys-=0#
 set textwidth=79
 set colorcolumn=80
 
-set nu          " show line numbers
+"set nu          " show line numbers
 "set relativenumber
 "colors delek    " colorscheme
 set showmatch   " show matching brackets
