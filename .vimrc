@@ -1,28 +1,7 @@
-"====[ Plugins and templates ]=================================================
-
-" NERDTree
-nnoremap <F4> :NERDTreeToggle<CR>
-set encoding=utf-8 " MacBook fix
-
-" open BufExplorer
-nnoremap <F5> :BufExplorer<CR>
-
-" make templates work
-autocmd BufNewFile * silent! 0r ~/.vim/templates/%:e.template
-
 "====[ Basics ]================================================================
 
 " Delay in milliseconds after (Esc) key press.
 set ttimeoutlen=50
-
-" Show whether you are in insert or command mode
-let &t_SI = "\e[6 q"
-let &t_EI = "\e[2 q"
-" reset the cursor on start (for older versions of vim, usually not required)
-augroup myCmds
-au!
-autocmd VimEnter * silent !echo -ne "\e[2 q"
-augroup END
 
 syntax on                       " syntax highlighting
 filetype on                     " try to detect filetypes
@@ -87,20 +66,4 @@ autocmd BufWinEnter *.* silent loadview "load folds
 
 set ignorecase  " case-insensitive search
 set smartcase   " overide ignorecase when search includes uppercase letters
-
-" Use arrow keys to navigate after a :vimgrep or :helpgrep
-nmap <silent> <RIGHT>         :cnext<CR>
-nmap <silent> <RIGHT><RIGHT>  :cnfile<CR><C-G>
-nmap <silent> <LEFT>          :cprev<CR>
-nmap <silent> <LEFT><LEFT>    :cpfile<CR><C-G>
-
-"====[ Python stuff ]==========================================================
-
-" Python completion (Ctrl-O-X). Needs: vim >= 7.0, vim-nox.
-" Problematic on cygwin.
-set ofu=syntaxcomplete#Complete
-
-"====[ Golang stuff ]==========================================================
-"imap errh if err != nil {<CR>fmt.Fprintf(os.Stderr, "%v\n", err)<CR>os.Exit(1)<CR>}
-let g:go_fmt_command = "goimports" " run goimports on save
 
