@@ -22,20 +22,21 @@
         # By default, git will print non-ASCII file names in quoted octal
         # notation, i.e.  "\nnn\nnn...". This disables this behaviour.
         quotepath = off
-        pager = delta
+        pager = delta # https://github.com/dandavison/delta
 [delta]
-        navigate = true  # use n and N to move between diff sections
+        navigate = true # use n and N to move between diff sections
         light = true    # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+[diff]
+		colorMoved = default
 [merge]
         tool = vimdiff
-[alias]
-        s = status
-        d = diff --color-words
-        l = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-        ll = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --name-status
 [push]
         default = matching
 [pull]
         rebase = false
 [init]
         defaultBranch = main
+[alias]
+        s = status
+        l = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+        ll = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --name-status
