@@ -22,12 +22,10 @@
         # By default, git will print non-ASCII file names in quoted octal
         # notation, i.e.  "\nnn\nnn...". This disables this behaviour.
         quotepath = off
-        pager = delta 	# https://github.com/dandavison/delta
+        pager = delta   # https://github.com/dandavison/delta
 [delta]
         navigate = true # use n and N to move between diff sections
         light = true    # set to true if you're in a terminal w/ a light background color
-[diff]
-		colorMoved = default
 [merge]
         tool = vimdiff
 [push]
