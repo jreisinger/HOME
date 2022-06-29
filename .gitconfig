@@ -10,12 +10,6 @@
 
 [commit]
         gpgSign = true
-[color]
-        ui = true
-        branch = auto
-        diff = auto
-        interactive = auto
-        status = auto
 [core]
         editor = vim
         filemode = false
