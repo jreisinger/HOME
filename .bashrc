@@ -207,7 +207,7 @@ function c {
     cd "$proj" || return
 }
 
-# Search history with peco. Don't run cmmand from h just store it into history.
+# Search history with peco. Don't run command from h just store it into history.
 function h {
     local tac
     if which tac > /dev/null; then
