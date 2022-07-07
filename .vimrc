@@ -50,6 +50,6 @@ set showmode
 " (https://stackoverflow.com/questions/1636297/how-to-change-the-folder-path-for-swp-files-in-vim)
 :set directory=$HOME/.vim//
 
-" Search
+" search
 set ignorecase  " case-insensitive search
 set smartcase   " overide ignorecase when search includes uppercase letters
