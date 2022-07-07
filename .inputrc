@@ -9,9 +9,9 @@ set keyseq-timeout 50
 # Show whether you are in insert or command mode.
 set show-mode-in-prompt on
 
-# Cursor shape.
+# Cursor shape indicates the vi mode.
+set vi-ins-mode-string "\1\e[5 q\2"
 set vi-cmd-mode-string "\1\e[2 q\2"
-set vi-ins-mode-string "\1\e[6 q\2"
 
 # So Ctrl+l clears screen both in insert and command mode.
 Control-l: clear-screen
