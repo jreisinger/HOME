@@ -1,5 +1,3 @@
-"====[ Basics ]================================================================
-
 " Delay in milliseconds after (Esc) key press.
 set ttimeoutlen=50
 
@@ -48,22 +46,10 @@ nnoremap <F2> :set nu! invpaste paste?<CR>
 set pastetoggle=<F2>
 set showmode
 
-" folding
-set nofoldenable " disable by default
-set foldmethod=manual
-inoremap <F9> <C-O>za
-nnoremap <F9> za
-onoremap <F9> <C-C>za
-vnoremap <F9> zf
-autocmd BufWinLeave *.* mkview          "save folds
-autocmd BufWinEnter *.* silent loadview "load folds
-
 " where to store swap files (*.swp)
 " (https://stackoverflow.com/questions/1636297/how-to-change-the-folder-path-for-swp-files-in-vim)
 :set directory=$HOME/.vim//
 
-"====[ Search ]================================================================
-
+" Search
 set ignorecase  " case-insensitive search
 set smartcase   " overide ignorecase when search includes uppercase letters
-
