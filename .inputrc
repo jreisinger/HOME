@@ -8,6 +8,8 @@ set keyseq-timeout 50
 
 # Show whether you are in insert or command mode.
 set show-mode-in-prompt on
+
+# Cursor shape.
 set vi-cmd-mode-string "\1\e[2 q\2"
 set vi-ins-mode-string "\1\e[6 q\2"
 
