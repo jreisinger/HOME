@@ -201,7 +201,7 @@ function c {
     fi
 
     proj=$(find -L \
-        ~/git/hub ~/git/lab ~/OneDrive/data ~/OneDrive/temp / /var \
+        ~/git/hub ~/git/lab ~/OneDrive/data ~/OneDrive/temp /tmp /var/tmp \
         -maxdepth 1 -type d | $peco)
 
     cd "$proj" || return
