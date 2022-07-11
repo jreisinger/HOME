@@ -24,6 +24,8 @@ autocmd FileType html,htmldjango setlocal tabstop=2 softtabstop=2 shiftwidth=2 e
 autocmd BufNewFile,BufRead *.kubeconfig setlocal filetype=yaml
 autocmd FileType c,go,python autocmd BufWritePre <buffer> :%s/\s\+$//e
 
+set nofoldenable " disable folding
+
 " Stop vim from messing up my indentation on comments
 " https://unix.stackexchange.com/questions/106526/stop-vim-from-messing-up-my-indentation-on-comments
 set cinkeys-=0#
