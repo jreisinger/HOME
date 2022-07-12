@@ -55,3 +55,16 @@ set showmode
 " search
 set ignorecase  " case-insensitive search
 set smartcase   " overide ignorecase when search includes uppercase letters
+
+" highligh text near the cursor: Ctrl-K
+" (https://vim.fandom.com/wiki/Highlight_current_word_to_find_cursor)
+nnoremap <C-K> :call HighlightNearCursor()<CR>
+function HighlightNearCursor()
+  if !exists("s:highlightcursor")
+    match Todo /\k*\%#\k*/
+    let s:highlightcursor=1
+  else
+    match None
+    unlet s:highlightcursor
+  endif
+endfunction
