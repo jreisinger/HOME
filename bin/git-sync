@@ -2,7 +2,7 @@
 # Synchronize local git repo with upstream.
 set -e
 
-git status > /dev/null 2>&1 # exit (thanks to -e) if not in a git repo
+git status # exit (thanks to -e) if not in a git repo
 
 MASTER="master"
 git branch | grep main > /dev/null && MASTER="main"
