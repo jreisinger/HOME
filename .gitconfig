@@ -34,5 +34,4 @@
         defaultBranch = main
 [alias]
         s  = status
-        l  = log --pretty --abbrev-commit
-        ll = log --pretty --abbrev-commit --name-status --graph
+        l = log --pretty --abbrev-commit --name-status --graph
